@@ -1,6 +1,14 @@
 # SZu-monitor: CPB vs. UWV
 SZu stands for 'socialezekerheidsuitgaven'. The SZu-monitor generates two `mutfiles` for correcting Mimosi model estimates. In addition, it compares CPB's and UWV's social security expenditure estimates. It provides both visual (png) and tabular (xlsx) outputs to highlight key differences.
 
+- [SZu-monitor: CPB vs. UWV](#szu-monitor-cpb-vs-uwv)
+- [Getting Started](#getting-started)
+- [Input](#input)
+  - [Settings](#settings)
+- [Output](#output)
+  - [Wage-Related Output](#wage-related-output)
+  - [Non-Wage-Related Benefits](#non-wage-related-benefits)
+
 ## Getting started
 Download [this batch-file](https://raw.githubusercontent.com/data-science-made-easy/szu-monitor/refs/heads/master/download-szu-monitor.bat) to install the latest version of SZu-monitor (right-click with mouse > Save Link As). This will create a `szu-monitor` directory containing the 'compare-cpb-uwv.bat' file to run the monitor. Before running, consider updating the `settings` tab in `comparison-cpb-uwv.xlsx`.
 

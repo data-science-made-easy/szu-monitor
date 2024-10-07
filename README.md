@@ -1,16 +1,29 @@
 # SZu-monitor: CPB vs. UWV
-Goal of the SZu-monitor is to produce two so-called `mutfile`s. One can supply these files as corrections to the Mimosi model. In addition to producing the `mutfile`s, the monitor also compares several of CPB's with UWV's estimates for social security expenditures. Run the `compare-cpb-uwv.r` script in R, or run `compare-cpb-uwv.bat` in Windows Explorer, to generate visual and tabular outputs that highlight differences between the two sets of estimates.
+SZu stands for 'socialezekerheidsuitgaven'. The SZu-monitor generates two `mutfiles` for correcting Mimosi model estimates. In addition, it compares CPB's and UWV's social security expenditure estimates. It provides both visual (png) and tabular (xlsx) outputs to highlight key differences.
+
+## Getting started
+Download [this batch-file](https://raw.githubusercontent.com/data-science-made-easy/szu-monitor/refs/heads/master/download-szu-monitor.bat) to install the latest version of SZu-monitor. This will create a `szu-monitor` directory containing the 'compare-cpb-uwv.bat' file to run the monitor. Before running, consider updating the `settings` tab in `comparison-cpb-uwv.xlsx`.
 
 ## Input
-The monitor uses data from the `comparison-cpb-uwv.xlsx` file, which contains a `settings` tab and `output` tabs (with some formulas).
+The monitor uses `comparison-cpb-uwv.xlsx`, which includes a `settings` tab and a template for several 'output' tabs.
 
 ### Settings
-This tab is parameterized for easy adjustments. Users typically need to modify the `run` (e.g., 661), `run_type` (`jan` or `jun`), and `year` parameters for each session. The `settings` tab also defines file paths for input and output, specifying the time series for the relevant variables.
+The `settings` tab allows easy adjustment of parameters like `run` (e.g., 661), `run_type` (`jan` or `jun`), and `year`. It also defines file paths for input and output, including time series for variables that appear in formulas on the output tabs.
 
-### Output tabs
-The three output tabs compare CPB's with UWV's estimates of (i) price per year differences, (ii) price differences, and (iii) exogenous variables, for a series of for funds and corresponding arrangements. One can use the resulting xlsx file as a so-called `mutfile` to supply corrections to Mimosi.
+### Output
+The monitor produces:
 
-## Output
-  * two png figures showing differences (paths defined in `settings` tab)
-  * two xlsx files (paths defined in `settings` tab)
+  - two figures (pngs) and an xlsx-file for wage-related benefits
+  - an additional xlsx-file for non-wage-related benefits
 
+Both Excel files can be used as `mutfiles` to correct Mimosi's estimates. Paths to the xlsx-files and pngs are defined in the `settings` tab.
+
+#### Wage-related output tabs
+The three 'output' tabs in the `comparison-cpb-uwv.xlsx` file will be processed. Their results will appear in the first xlsx-file. The tabs compare CPB's and UWV's estimates across various funds and arrangements:
+
+  - (i) *price per year* differences
+  - (ii) *price* differences
+  - (iii) *exogenous variables*
+
+#### Non-wage-related benefits
+The non-wage-related benefits are compared only for a few variables, listed in `comparison-cpb-uwv.xlsx`'s `settings` tab.

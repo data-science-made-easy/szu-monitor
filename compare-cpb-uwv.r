@@ -38,7 +38,7 @@ xlsx_wage_related_price_diff_path <- save_xlsx_wage_related(lst, settings) # sav
 
 
 ###
-### Social security (non wage-related benefits)
+### Social security (non-wage-related benefits)
 ###
 lst <- get_non_wage_related_tabels(mat_input, settings)
 xlsx_non_wage_related <- save_xlsx_non_wage_related(lst, settings)

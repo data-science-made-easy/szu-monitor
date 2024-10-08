@@ -1,3 +1,3 @@
-Rscript --local compare-cpb-uwv.r
+call Rscript --local compare-cpb-uwv.r
 
 pause

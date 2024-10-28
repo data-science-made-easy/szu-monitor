@@ -1,4 +1,5 @@
 rm(list = ls())
+cpblib::use_cpblib()
 source("r/constants.r")
 source("r/functions-helpers.r")
 source("r/functions-input.r")

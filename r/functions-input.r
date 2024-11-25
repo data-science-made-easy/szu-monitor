@@ -28,16 +28,17 @@ resolve_settings <- function(work_file, sheet) {
   return(resolved)
 }
 
-get_file_name <- function(vec) {
+get_existing_file_name <- function(file_param, settings) {
+  file_name_vec <- settings[[file_param]]
   file_name <- NULL
-  for (f in vec) {
+  for (f in file_name_vec) {
     if (file.exists(f)) {
       file_name <- f
       break
     }
   }
-  
-  if (is.null(file_name)) stop(paste0("Parameter '", file_param, "' does not refer to any existing file."))
+
+  if (is.null(file_name)) stop(paste0("Parameter '", file_param, "' does not refer to any existing file. Please open '", file.path(getwd(), work_file), "' and provide a path to an existing file to parameter '", file_param, "'."))
 
   file_name
 }
@@ -49,7 +50,7 @@ get_file <- function(file_param, settings, prefix_col) {
     years <- as.numeric(settings$year) + as.numeric(settings$years_delta_jun)
   } else stop(paste0("Setting 'run_type' should be element {", JAN, ", ", JUN, "}. Current value: ", settings$run_type))
 
-  file_name <- get_file_name(settings[[file_param]])
+  file_name <- get_existing_file_name(file_param, settings)
   mat       <- openxlsx::read.xlsx(file_name, sheet = 1)
   index     <- which(colnames(mat) %in% years)
 

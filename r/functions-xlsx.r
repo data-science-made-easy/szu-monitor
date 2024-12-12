@@ -62,6 +62,8 @@ save_xlsx_wage_related <- function(lst, settings) {
     for (j in 1:ncol(mat)) openxlsx::setColWidths(wb, sheet_name[i], cols = j, widths = "auto")                               # make columns as wide as content
   }
  
+ openxlsx::worksheetOrder(wb) <- c(3, 1, 2)
+ 
   # save
   openxlsx::saveWorkbook(wb, file = settings$file_mut, overwrite = TRUE)
   
@@ -88,7 +90,7 @@ save_xlsx_non_wage_related <- function(lst, settings) {
   openxlsx::addStyle(wb, sn, style = style_bold_col, rows = n, cols = m, gridExpand = FALSE)
   
   for (j in 1:ncol(lst[[1]])) openxlsx::setColWidths(wb, sn, cols = j, widths = "auto") # make columns as wide as content
-    
+  
   openxlsx::saveWorkbook(wb, file = settings$file_social_security, overwrite = TRUE)
  
   settings$file_social_security 
